@@ -1,0 +1,27 @@
+from mcp.server import Server
+from mcp.server.stdio import stdio_server
+
+from tools.llm import call_llama
+from tools.shell import run_shell
+
+server = Server("mac-code-mcp")
+
+
+@server.tool()
+def chat(prompt: str) -> str:
+    """
+    Send a prompt to the local LLM
+    """
+    return call_llama(prompt)
+
+
+@server.tool()
+def shell(command: str) -> str:
+    """
+    Execute a shell command
+    """
+    return run_shell(command)
+
+
+if __name__ == "__main__":
+    stdio_server(server)
