@@ -10,7 +10,8 @@ While tools like **Aider** focus strictly on code editing within a repository, *
 
 - **Privacy & Cost**: Use local models (Ollama/Llama.cpp) to save money and keep data private.
 - **System Orchestration**: It doesn't just edit code; it manages your terminal, installs dependencies, and navigates the web.
-- **MCP Native**: Unlike closed tools, MacAgent uses the industry-standard Model Context Protocol. This means it works inside **Claude Desktop**, **Claude Code**, and **Cursor** simultaneously.
+- **Token Efficiency (Hybrid Workflow)**: The perfect companion for cloud agents like **Antigravity**. Use cloud models for high-level architecture and planning, but delegate "expensive" or repetitive tasks (writing boilerplate, tests, or running shell commands) to MacAgent. **Save up to 90% in token costs.**
+- **MCP Native**: Unlike closed tools, MacAgent uses the industry-standard Model Context Protocol. This means it works inside **Antigravity**, **Claude Desktop**, **Claude Code**, and **Cursor** simultaneously.
 - **Smart Loop**: It doesn't just give you code; it executes it, checks for errors, and fixes them automatically until the job is done.
 
 ---
@@ -28,19 +29,22 @@ While tools like **Aider** focus strictly on code editing within a repository, *
 
 ## 💻 Usage Modes
 
-### 1. The Premium CLI
+### 1. Antigravity & Cursor
+Since MacAgent is a standard MCP server, you can add it to Antigravity or Cursor by pointing to the `server.py` file using your Python path. This allows the cloud agent to delegate local tasks to your Mac.
+
+### 2. The Premium CLI
 For a fast, interactive terminal experience with streaming and markdown:
 ```bash
 python3 client.py
 ```
 
-### 2. Claude Code (Official CLI)
+### 3. Claude Code (Official CLI)
 To add MacAgent as a persistent tool in Claude Code:
 ```bash
 claude mcp add --transport stdio --scope user mac-code-agent -- python3 /PATH/TO/YOUR/FOLDER/server.py
 ```
 
-### 3. Claude Desktop
+### 4. Claude Desktop
 Add this to your `claude_desktop_config.json`:
 ```json
 "mcpServers": {
@@ -67,4 +71,4 @@ MacAgent has system access. Use it in trusted directories. It is designed to be 
 
 ---
 
-*Created by Jorge Tamaral*
+*Created by TaviDev*
