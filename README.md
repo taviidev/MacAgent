@@ -27,6 +27,23 @@ While tools like **Aider** focus strictly on code editing within a repository, *
 
 ---
 
+## 🧠 Local Model Setup
+
+MacAgent works best with a local server. This project was inspired by the work at [walter-grace/mac-code](https://github.com/walter-grace/mac-code).
+
+To run the local model used in this setup (optimized for Mac with Flash Attention), use the following command with `llama.cpp`:
+
+```bash
+llama-server \
+    --model ~/models/Qwen3.5-35B-A3B-UD-IQ2_M.gguf \
+    --port 8000 --host 127.0.0.1 \
+    --flash-attn on --ctx-size 12288 \
+    --cache-type-k q4_0 --cache-type-v q4_0 \
+    --n-gpu-layers 99 --reasoning off -np 1 -t 4
+```
+
+---
+
 ## 💻 Usage Modes
 
 ### 1. Antigravity & Cursor
